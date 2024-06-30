@@ -1,7 +1,11 @@
 import { getCsrfToken } from "next-auth/react";
 import { GetServerSideProps } from "next";
 
-export default function SignIn({ csrfToken }) {
+interface SignInProps {
+  csrfToken: string | null;
+}
+
+export default function SignIn({ csrfToken }: SignInProps) {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded shadow-lg">
@@ -9,7 +13,7 @@ export default function SignIn({ csrfToken }) {
           <h1 className="text-3xl font-bold text-center">Sign In</h1>
         </div>
         <form method="post" action="/api/auth/callback/credentials" className="mt-8 space-y-6">
-          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
+          <input name="csrfToken" type="hidden" defaultValue={csrfToken ?? ''} />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="username" className="sr-only">Username</label>
