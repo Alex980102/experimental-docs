@@ -1,0 +1,20 @@
+{
+  "index": "Introduction",
+  "guide": "Guide",
+  "organize-files": "Organize Files",
+  "markdown": "Markdown",
+  "syntax-highlighting": "Syntax Highlighting",
+  "next-js-link": "Next.js Link",
+  "next-js-image": "Next.js Image",
+  "next-js-ssg": "Next.js SSG",
+  "next-js-i18n": "Next.js I18n",
+  "custom-css": "Custom CSS",
+  "advanced": "Advanced",
+  "built-ins": "Built-ins",
+  "themes": "Themes",
+  "docs-theme": "Docs Theme",
+  "blog-theme": "Blog Theme",
+  "custom-theme": "Custom Theme",
+  "more": "More",
+  "about-nextra": "About Nextra"
+}
