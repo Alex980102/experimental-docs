@@ -1,6 +1,7 @@
 // components/RequireAuth.tsx
 import React, { useEffect } from 'react';
 import { useSession, signIn } from 'next-auth/react';
+import LoadingSpinner from './LoadingSpinner';
 
 interface RequireAuthProps {
   children: React.ReactNode;
@@ -16,7 +17,7 @@ const RequireAuth: React.FC<RequireAuthProps> = ({ children }) => {
   }, [status]);
 
   if (status === 'loading') {
-    return <p>Loading...</p>;
+    return <LoadingSpinner />;
   }
 
   if (!session) {

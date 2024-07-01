@@ -53,3 +53,10 @@ code.text-\[\.9em\] {
     display: none;
   }
 }
+
+.spinner-border {
+  border-top-color: transparent;
+  border-right-color: #4A5568; /* Gray-700 */
+  border-bottom-color: #4A5568; /* Gray-700 */
+  border-left-color: #4A5568; /* Gray-700 */
+}
