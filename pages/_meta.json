@@ -10,10 +10,5 @@
   "fruits": {
     "title": "Fruits",
     "type": "page"
-  },
-  "about": {
-    "title": "About",
-    "type": "page"
   }
-
 }

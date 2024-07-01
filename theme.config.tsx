@@ -31,13 +31,16 @@ const LogoutButton = () => {
           : 'text-black bg-white hover:bg-gray-200 focus:ring-gray-400'
       } focus:outline-none focus:ring-2 focus:ring-offset-2`}
     >
-      Cerrar Sesión
+      Logout
     </button>
   );
 };
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
+  footer: {
+    component: null
+  },
   navbar: {
     extraContent: <LogoutButton />,
   },
