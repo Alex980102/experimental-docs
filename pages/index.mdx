@@ -1,4 +1,6 @@
-import AuthWrapper from './components/AuthWrapper';
+import AuthWrapper from '../components/AuthWrapper';
+import { Callout, Card, Cards, Steps } from 'nextra/components'
+
 
 <AuthWrapper>
   # Hola Mundo
@@ -6,4 +8,19 @@ import AuthWrapper from './components/AuthWrapper';
   ¡Bienvenido a la documentación de Nextra!
 
   Aquí puedes añadir cualquier contenido en Markdown que solo será visible para los usuarios autenticados.
+
+  <Cards>
+  <Card
+    title="Page Structure"
+    href="/docs/docs-theme/page-configuration"
+  />
+  <Card
+    title="Theme Configuration"
+    href="/docs/docs-theme/theme-configuration"
+  />
+  <Card
+    title="Built-in Components"
+    href="/docs/docs-theme/built-ins"
+  />
+</Cards>
 </AuthWrapper>
