@@ -6,5 +6,4 @@ const withNextra = require('nextra')({
 
 module.exports = withNextra({
   reactStrictMode: true,
-  // Puedes agregar otras configuraciones aquí si es necesario
 });

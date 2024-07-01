@@ -53,12 +53,7 @@ const config: DocsThemeConfig = {
   gitTimestamp: null, // Disable last edited
   search: {
     placeholder: 'Buscar...', // Change search placeholder text
-  },
-  darkMode: false, // Disable dark mode toggle
-  nextThemes: {
-    defaultTheme: 'light', // Set default theme to light
-    forcedTheme: 'light', // Force light theme
-  },
+  }
 };
 
 export default config;

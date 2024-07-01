@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const isProtectedRoute = router.pathname !== '/auth/signin';
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" forcedTheme="light">
+    <ThemeProvider attribute="class">
       <SessionProvider session={session}>
         {isProtectedRoute ? (
           <RequireAuth>
