@@ -1,7 +1,6 @@
 import NextAuth, { DefaultSession, NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-// Extiende el tipo de la sesión para incluir el campo 'id'
 declare module 'next-auth' {
   interface Session {
     user: {
@@ -14,6 +13,31 @@ declare module 'next-auth' {
   }
 }
 
+// FIXME: Se deben de almacenar los usuarios en una base de datos
+const users = [
+  {
+    id: '1',
+    name: 'Admin',
+    email: 'admin@example.com',
+    username: 'admin',
+    password: 'password',
+  },
+  {
+    id: '2',
+    name: 'User1',
+    email: 'user1@example.com',
+    username: 'user1',
+    password: 'password1',
+  },
+  {
+    id: '3',
+    name: 'User2',
+    email: 'user2@example.com',
+    username: 'user2',
+    password: 'password2',
+  },
+];
+
 export default NextAuth({
   providers: [
     CredentialsProvider({
@@ -23,15 +47,11 @@ export default NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        const user = {
-          id: '1', // Cambiado a cadena
-          name: 'Admin',
-          email: 'admin@example.com',
-          username: 'admin',
-          password: 'password'
-        };
-
-        if (credentials?.username === user.username && credentials.password === user.password) {
+        const user = users.find(
+          (user) =>
+            user.username === credentials?.username && user.password === credentials.password
+        );
+        if (user) {
           return user;
         } else {
           return null;
