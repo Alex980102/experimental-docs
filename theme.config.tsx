@@ -31,20 +31,30 @@ const LogoutButton = () => {
           : 'text-black bg-white hover:bg-gray-200 focus:ring-gray-400'
       } focus:outline-none focus:ring-2 focus:ring-offset-2`}
     >
-      Logout
+      Cerrar Sesión
     </button>
   );
 };
 
 const config: DocsThemeConfig = {
   logo: <Logo />,
-  footer: {
-    text: 'Nextra Docs Template',
-  },
   navbar: {
-    extraContent: (
-      LogoutButton
-    ),
+    extraContent: <LogoutButton />,
+  },
+  feedback: {
+    content: null, // Disable feedback button
+  },
+  editLink: {
+    component: null, // Disable edit link
+  },
+  gitTimestamp: null, // Disable last edited
+  search: {
+    placeholder: 'Buscar...', // Change search placeholder text
+  },
+  darkMode: false, // Disable dark mode toggle
+  nextThemes: {
+    defaultTheme: 'light', // Set default theme to light
+    forcedTheme: 'light', // Force light theme
   },
 };
 

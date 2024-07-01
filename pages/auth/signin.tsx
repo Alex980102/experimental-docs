@@ -1,18 +1,22 @@
 import { getCsrfToken } from "next-auth/react";
 import { GetServerSideProps } from "next";
+import { useTheme } from 'next-themes';
 
 interface SignInProps {
   csrfToken: string | null;
 }
 
-const logoUrl = "https://paisuscripciones.com/website/img/pai-official-stripe-partner.png";
+const logoUrlLight = "https://paisuscripciones.com/website/img/pai-official-stripe-partner.png";
+const logoUrlDark = "https://paisuscripciones.com/website/img/pai-official-stripe-partner-white.png";
 
 export default function SignIn({ csrfToken }: SignInProps) {
+  const { theme } = useTheme();
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
+    <div className={`flex items-center justify-center min-h-screen ${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-50'} px-4 sm:px-6 lg:px-8`}>
       <div className="w-full max-w-md p-6 space-y-8 bg-white rounded-xl shadow-lg">
         <div className="flex items-center justify-center space-x-4">
-          <img src={logoUrl} alt="Logo" className="h-20" />
+          <img src={theme === 'dark' ? logoUrlDark : logoUrlLight} alt="Logo" className="h-20" />
         </div>
         <form method="post" action="/api/auth/callback/credentials" className="mt-8 space-y-6">
           <input name="csrfToken" type="hidden" defaultValue={csrfToken ?? ''} />

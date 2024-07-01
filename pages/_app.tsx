@@ -1,4 +1,5 @@
 import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider } from 'next-themes';
 import { AppProps } from 'next/app';
 import '../styles/globals.css'; // Importa tus estilos globales
 import RequireAuth from '../components/RequireAuth';
@@ -9,15 +10,21 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const isProtectedRoute = router.pathname !== '/auth/signin';
 
   return (
-    <SessionProvider session={session}>
-      {isProtectedRoute ? (
-        <RequireAuth>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="light"
+      forcedTheme="light"
+    >
+      <SessionProvider session={session}>
+        {isProtectedRoute ? (
+          <RequireAuth>
+            <Component {...pageProps} />
+          </RequireAuth>
+        ) : (
           <Component {...pageProps} />
-        </RequireAuth>
-      ) : (
-        <Component {...pageProps} />
-      )}
-    </SessionProvider>
+        )}
+      </SessionProvider>
+    </ThemeProvider>
   );
 }
 
